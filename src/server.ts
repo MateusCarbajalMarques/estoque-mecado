@@ -20,10 +20,5 @@ app.use((err: Error, request: Request, response: Response, next: NextFunction) =
   })
 })
 
-const PORT = process.env.PORT || 3000
-const server = app.listen(PORT, () =>
-  console.log(
-    `🚀 Server ready at: http://localhost:${PORT}\n⭐️ See sample requests: http://pris.ly/e/ts/rest-express#3-using-the-rest-api`,
-  ),
-)
+app.listen(3333, () => console.log("Server is running!"));
 
