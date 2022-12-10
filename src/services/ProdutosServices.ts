@@ -10,7 +10,6 @@ interface ICreateProduto {
     unkgpreso: string,
     fdcx: string,
     datavalidade: string,
-    cep; strig
 }
 
 
