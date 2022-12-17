@@ -22,4 +22,4 @@ app.use((err, request, response, next) => {
         message: "Internal server error"
     });
 });
-app.listen(8080, () => console.log("Server is running!"));
+app.listen(3000, () => console.log("Server is running!"));

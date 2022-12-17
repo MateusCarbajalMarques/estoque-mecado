@@ -20,8 +20,10 @@ model Produto {
   unkgpreso    String
   fdcx         String
   datavalidade String
+  atualizacao  String
   create_at    DateTime  @default(now())
   end_at       DateTime?
+
   @@map("produto")
 }
 
@@ -31,6 +33,7 @@ model Cartao {
   numero   String
   cpf      String?
   telefone String?
+
   @@map("cartao")
 }
 
@@ -46,14 +49,16 @@ model Registro {
   funcionario String
   create_at   DateTime  @default(now())
   end_at      DateTime?
+
   @@map("registro")
 }
 
 model Relatorio {
-  id String @id @default(uuid())
-  produto String
-  codigo String
+  id         String @id @default(uuid())
+  produto    String
+  codigo     String
   quantidade Int
-  unidcxfd String
+  unidcxfd   String
+
   @@map("relatorio")
 }

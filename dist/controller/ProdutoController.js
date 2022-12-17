@@ -14,7 +14,7 @@ const ProdutosServices_1 = require("../services/ProdutosServices");
 class ProdutoController {
     create(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { nome, codigo_barra, preco_venda, estoque, estoque_min, unkgpreso, fdcx, datavalidade } = request.body;
+            const { nome, codigo_barra, preco_venda, estoque, estoque_min, unkgpreso, fdcx, datavalidade, atualizacao } = request.body;
             const createProdutosServices = new ProdutosServices_1.CreateProdutosServices();
             const result = yield createProdutosServices.create({
                 nome,
@@ -25,6 +25,7 @@ class ProdutoController {
                 unkgpreso,
                 fdcx,
                 datavalidade,
+                atualizacao
             });
             return response.json(result);
         });
@@ -32,7 +33,7 @@ class ProdutoController {
     update(request, response) {
         return __awaiter(this, void 0, void 0, function* () {
             const { id } = request.params;
-            const { nome, codigo_barra, preco_venda, estoque, estoque_min, unkgpreso, fdcx, datavalidade } = request.body;
+            const { nome, codigo_barra, preco_venda, estoque, estoque_min, unkgpreso, fdcx, datavalidade, atualizacao } = request.body;
             const createProdutosServices = new ProdutosServices_1.CreateProdutosServices();
             const result = yield createProdutosServices.update({
                 id,
@@ -44,6 +45,7 @@ class ProdutoController {
                 unkgpreso,
                 fdcx,
                 datavalidade,
+                atualizacao
             });
             response.json(result);
         });

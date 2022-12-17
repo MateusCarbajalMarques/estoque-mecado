@@ -10,12 +10,13 @@ interface ICreateProduto {
     unkgpreso: string,
     fdcx: string,
     datavalidade: string,
+    atualizacao: string
 }
 
 
 
 export class CreateProdutosServices {
-    async create({ nome, codigo_barra, preco_venda, estoque, estoque_min, unkgpreso, fdcx, datavalidade }: ICreateProduto) {
+    async create({ nome, codigo_barra, preco_venda, estoque, estoque_min, unkgpreso, fdcx, datavalidade, atualizacao }: ICreateProduto) {
         const produtoExist = await prisma.produto.findFirst({
             where: {
                 codigo_barra,
@@ -35,13 +36,15 @@ export class CreateProdutosServices {
                 unkgpreso,
                 fdcx,
                 datavalidade,
+                atualizacao
+
             }
         })
         return produto;
 
     }
 
-    async update({ id, nome, codigo_barra, preco_venda, estoque, estoque_min, unkgpreso, fdcx, datavalidade }: ICreateProduto) {
+    async update({ id, nome, codigo_barra, preco_venda, estoque, estoque_min, unkgpreso, fdcx, datavalidade, atualizacao }: ICreateProduto) {
         const produto = await prisma.produto.update({
             where: {
                 id
@@ -55,6 +58,8 @@ export class CreateProdutosServices {
                 unkgpreso,
                 fdcx,
                 datavalidade,
+                atualizacao
+                
             }
         })
         return produto;
@@ -78,6 +83,9 @@ export class CreateProdutosServices {
         const produto = await prisma.produto.findMany({
             skip: 0,
             take: pagina,
+            orderBy:{
+                nome: 'desc'
+            },
             where: {
                 OR: [
                     {

@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateProdutosServices = void 0;
 const PrismaClient_1 = require("../database/PrismaClient");
 class CreateProdutosServices {
-    create({ nome, codigo_barra, preco_venda, estoque, estoque_min, unkgpreso, fdcx, datavalidade }) {
+    create({ nome, codigo_barra, preco_venda, estoque, estoque_min, unkgpreso, fdcx, datavalidade, atualizacao }) {
         return __awaiter(this, void 0, void 0, function* () {
             const produtoExist = yield PrismaClient_1.prisma.produto.findFirst({
                 where: {
@@ -32,12 +32,13 @@ class CreateProdutosServices {
                     unkgpreso,
                     fdcx,
                     datavalidade,
+                    atualizacao
                 }
             });
             return produto;
         });
     }
-    update({ id, nome, codigo_barra, preco_venda, estoque, estoque_min, unkgpreso, fdcx, datavalidade }) {
+    update({ id, nome, codigo_barra, preco_venda, estoque, estoque_min, unkgpreso, fdcx, datavalidade, atualizacao }) {
         return __awaiter(this, void 0, void 0, function* () {
             const produto = yield PrismaClient_1.prisma.produto.update({
                 where: {
@@ -52,6 +53,7 @@ class CreateProdutosServices {
                     unkgpreso,
                     fdcx,
                     datavalidade,
+                    atualizacao
                 }
             });
             return produto;
@@ -78,6 +80,9 @@ class CreateProdutosServices {
             const produto = yield PrismaClient_1.prisma.produto.findMany({
                 skip: 0,
                 take: pagina,
+                orderBy: {
+                    nome: 'desc'
+                },
                 where: {
                     OR: [
                         {

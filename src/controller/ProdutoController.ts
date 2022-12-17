@@ -10,7 +10,8 @@ export class ProdutoController {
             estoque_min,
             unkgpreso,
             fdcx,
-            datavalidade 
+            datavalidade,
+            atualizacao 
         } = request.body;
 
         const createProdutosServices = new CreateProdutosServices();
@@ -24,6 +25,7 @@ export class ProdutoController {
             unkgpreso,
             fdcx,
             datavalidade,
+            atualizacao
         });
         return response.json(result);
     }
@@ -37,7 +39,8 @@ export class ProdutoController {
             estoque_min,
             unkgpreso,
             fdcx,
-            datavalidade
+            datavalidade,
+            atualizacao
         } = request.body;
 
         const createProdutosServices = new CreateProdutosServices();
@@ -52,6 +55,7 @@ export class ProdutoController {
             unkgpreso,
             fdcx,
             datavalidade,
+            atualizacao
         })
 
         response.json(result);
