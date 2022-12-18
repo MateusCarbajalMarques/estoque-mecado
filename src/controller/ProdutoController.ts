@@ -25,7 +25,7 @@ export class ProdutoController {
             unkgpreso,
             fdcx,
             datavalidade,
-            atualizacao
+           atualizacao
         });
         return response.json(result);
     }

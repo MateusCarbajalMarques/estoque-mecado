@@ -9,6 +9,7 @@ CREATE TABLE "produto" (
     "unkgpreso" TEXT NOT NULL,
     "fdcx" TEXT NOT NULL,
     "datavalidade" TEXT NOT NULL,
+    "atualizacao" TEXT NOT NULL,
     "create_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "end_at" TIMESTAMP(3),
 
